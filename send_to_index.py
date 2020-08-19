@@ -30,7 +30,7 @@ for topic, topicDict in topicsList.items():
              'data' : encoded_image
         }
         
-        future = producer.send(TOPIC_NAME, value=message)
+        future = producer.send(topicName, value=message)
 
 producer.flush()
 
