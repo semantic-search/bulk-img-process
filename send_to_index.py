@@ -12,7 +12,8 @@ producer = KafkaProducer(
 
 images_path = list(Path('images').glob('*.*'))
 
-images_name = [ p.stem for p in images_path]
+images_name = [ p.name for p in images_path]
+
 
 for topic, topicDict in topicsList.items():
     endpoint, topicName = topicDict.items()
@@ -23,14 +24,13 @@ for topic, topicDict in topicsList.items():
     for idx, image in enumerate(images_path):
         
         with open(image, "rb") as image_file:
-            encoded_image = base64.b64encode(image_file.read())
+            encoded_image = base64.b64encode(image_file.read()).decode('ascii')
         #send to consumer
         message = {
             'image_id' : images_name[idx], 
              'data' : encoded_image
         }
         
-        future = producer.send(topicName, value=message)
-
-producer.flush()
-
+        producer.send(topicName, value=message)
+        producer.flush()
+        
