@@ -1,6 +1,5 @@
 from kafka import KafkaConsumer
 from json import loads
-from base64 import decodestring
 import base64
 from pathlib import Path
 
