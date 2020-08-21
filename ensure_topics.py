@@ -9,7 +9,7 @@ consumer = kafka.KafkaConsumer(group_id='my-group', bootstrap_servers=['40.88.35
 topics_kafka = consumer.topics()
 
 # no space in topic names, but can use - . _
-all_topics = {"EASY_OCR", "DENSECAP", "NEWTOPIC", "ewww"} 
+all_topics = {"EASY_OCR", "DENSECAP", "KERAS_OCR", "TESSER_OCR", "MAX_CAPTION"} 
 
 
 topics_to_create = all_topics - topics_kafka 
