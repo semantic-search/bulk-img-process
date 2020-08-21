@@ -7,11 +7,9 @@ from json import loads
 # usage : python consumer.py "EASY_OCR"
 TOPIC_NAME = "IMAGE_RESULTS"
 
-topic = sys.argv[1]
 
-
-if topic:
-    TOPIC_NAME = topic
+if sys.argv[1]:
+    TOPIC_NAME = sys.argv[1]
 
 print(f"topic name : {TOPIC_NAME}")
 
@@ -28,6 +26,7 @@ consumer = KafkaConsumer(
 def truncated(data):
     data = (data[:40] + '..') if len(data) > 40 else data
     return data
+
 
 for message in consumer:
     message = message.value
