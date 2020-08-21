@@ -8,7 +8,7 @@ from json import loads
 TOPIC_NAME = "IMAGE_RESULTS"
 
 
-if sys.argv:
+if len(sys.argv) > 1:
     TOPIC_NAME = sys.argv[1]
 
 print(f"topic name : {TOPIC_NAME}")
