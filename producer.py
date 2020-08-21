@@ -13,10 +13,8 @@ producer = KafkaProducer(
 
 TOPIC_NAME = "EASY_OCR"
 
-topic = sys.argv[1]
-
-if topic:
-    TOPIC_NAME = topic
+if sys.argv[1]:
+    TOPIC_NAME = sys.argv[1]
 
 print(f"topic name : {TOPIC_NAME}")
 
