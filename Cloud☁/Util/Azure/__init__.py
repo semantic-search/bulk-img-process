@@ -6,20 +6,7 @@ from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
 load_dotenv()
 
-EndpointsProtocol = os.getenv("DefaultEndpointsProtocol")
-AccountName = os.getenv("AccountName")
-AccountKey = os.getenv("AccountKey")
-EndpointSuffix= os.getenv("EndpointSuffix")
-
-ConnectionString = ("DefaultEndpointsProtocol="+
-                    EndpointsProtocol + ";" +
-                    "AccountName="+ 
-                    AccountName + ";" +
-                    "AccountKey=" +
-                    AccountKey + ";" +
-                    "EndpointSuffix="+
-                    EndpointSuffix
-                    ) 
+ConnectionString = os.getenv("ConnectionString")
 
 # """The below code prints all the blobs in the container(bucket)"""
 blob_service_client = BlobServiceClient.from_connection_string(ConnectionString)
