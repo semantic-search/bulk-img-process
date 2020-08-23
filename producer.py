@@ -32,6 +32,6 @@ for idx, image in enumerate(images_path):
         'image_id': images_name[idx],
         'data': encoded_image
     }
-
+    print('SENDING : ',images_name[idx])
     producer.send(TOPIC_NAME, value=message)
     producer.flush()
